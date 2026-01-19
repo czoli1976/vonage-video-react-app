@@ -9,6 +9,8 @@ export default defineConfig(() => ({
     alias: {
       '@api-lib': path.resolve(__dirname, './src'),
       '@common': path.resolve(__dirname, '../common/src'),
+      '@node': path.resolve(__dirname, '../common/srcNode'),
+      '@common-test': path.resolve(__dirname, '../common/test'),
     },
   },
   test: {
