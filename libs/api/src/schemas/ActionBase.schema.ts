@@ -1,9 +1,7 @@
 import z from 'zod';
-import { VeraActionSchema } from './VeraAction';
 
 export const ActionBaseSchema = z.object({
-  action: VeraActionSchema,
-  sessionId: z.string(),
+  sessionId: z.string().refine((val) => val.trim() !== '', { message: 'not a valid sessionId' }),
 });
 
 export default ActionBaseSchema;

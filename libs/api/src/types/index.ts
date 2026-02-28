@@ -1,13 +1,9 @@
-export type * from './ActionInput';
-export type * from './IVideoProvider';
-export type { ICommandExecutor } from './ICommandExecutor';
+export type * from './IVideoOrchestrator';
 
 // Schema types
 export type {
   ActionResult,
-  OpentokProviderConfig,
   VonageProviderConfig,
-  ProviderConfig,
   ProviderType,
   VideoProviderAction,
   VeraAction,
@@ -16,7 +12,13 @@ export type {
   StopArchive,
   ListArchives,
   EnableCaptions,
-  VeraActionRequest,
 } from '../schemas';
 
-export type * from './VonageHandler';
+export type * from './ActionInput';
+export type * from './VideoRouter';
+export type * from './ApplicationErrorMiddleware';
+export type * from './ApplicationHandler';
+export type * from './ApplicationRequest';
+export type * from './ApplicationRequestHandler';
+export type * from './ParamsDictionary';
+export type * from './Query';

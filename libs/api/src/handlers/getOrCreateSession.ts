@@ -1,12 +1,12 @@
+import type { IVideoOrchestrator, ActionResult, ActionInput } from '@api-lib/types';
 import { decodeSessionId } from '@node/helpers';
-import type { ICommandExecutor, ActionInput, GetOrCreateSession, ActionResult } from '@types';
 
 type Result = ActionResult<{
   sessionId: string;
 }>;
 
 async function getOrCreateSession(
-  this: ICommandExecutor,
+  this: IVideoOrchestrator,
   payload: ActionInput<'getOrCreateSession'>
 ): Promise<Result> {
   // TODO: Validate integrity of sessionId if provided
@@ -30,10 +30,4 @@ async function getOrCreateSession(
   };
 }
 
-export default Object.assign(getOrCreateSession, {
-  command: (sessionId?: string): GetOrCreateSession => ({
-    action: 'getOrCreateSession',
-    sessionId: sessionId ?? '',
-    payload: { sessionId },
-  }),
-});
+export default getOrCreateSession;

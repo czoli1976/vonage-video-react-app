@@ -1,5 +1,4 @@
 import type { VonageProviderConfig } from '@api-lib/schemas/VonageProviderConfig.schema';
-import type { IVideoProvider } from '@api-lib/types';
 import { Auth } from '@vonage/auth';
 import {
   LayoutType,
@@ -11,7 +10,7 @@ import {
   CaptionOptions,
 } from '@vonage/video';
 
-class VonageVideoService implements IVideoProvider {
+class VonageVideoService {
   private readonly credentials: Auth;
   private readonly vonageVideo: Video;
 

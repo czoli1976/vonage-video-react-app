@@ -1,1 +1,1 @@
-export { default as CommandExecutor } from './CommandExecutor';
+export { default as VideoOrchestrator } from './VideoOrchestrator';

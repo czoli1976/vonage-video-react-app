@@ -1,14 +1,8 @@
-import type { EnableCaptions, ICommandExecutor } from '@types';
+import type { IVideoOrchestrator } from '@api-lib/types';
 
-function enableCaptions(this: ICommandExecutor) {
+function enableCaptions(this: IVideoOrchestrator) {
   // Implementation for enabling captions
   return { success: true };
 }
 
-export default Object.assign(enableCaptions, {
-  command: (sessionId: string, room: string): EnableCaptions => ({
-    action: 'enableCaptions',
-    sessionId,
-    payload: { room },
-  }),
-});
+export default enableCaptions;

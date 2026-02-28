@@ -18,8 +18,6 @@
     "paths": {
       "@api-lib": ["./src"],
       "@api-lib/*": ["./src/*"],
-      "@types": ["./src/types"],
-      "@types/*": ["./src/types/*"],
       "@common": ["../common/src"],
       "@common/*": ["../common/src/*"],
       "@node": ["../common/srcNode"],

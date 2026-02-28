@@ -53,4 +53,8 @@ const startServer: (port?: number) => Promise<Server> = (port = defaultPort) => 
   });
 };
 
+const test = router as typeof router & { test: string };
+
 export default startServer;
+
+app.use('v2', test);

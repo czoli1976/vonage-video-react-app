@@ -1,18 +1,12 @@
-import type { ICommandExecutor, StartArchive } from '@types';
+import type { IVideoOrchestrator } from '@api-lib/types';
 
 // type Result = ActionResult<{
 //   sessionId: string;
 // }>;
 
-function startArchive(this: ICommandExecutor) {
+function startArchive(this: IVideoOrchestrator) {
   // Implementation for starting an archive
   return { success: true, archiveId: 'archive_12345' };
 }
 
-export default Object.assign(startArchive, {
-  command: (sessionId: string, room: string): StartArchive => ({
-    action: 'startArchive',
-    sessionId,
-    payload: { room },
-  }),
-});
+export default startArchive;

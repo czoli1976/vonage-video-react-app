@@ -1,5 +1,8 @@
 import z from 'zod';
 
+/**
+ * All known Vera actions
+ */
 export const VeraActionSchema = z.enum([
   'getOrCreateSession',
   'startArchive',

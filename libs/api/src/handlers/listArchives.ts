@@ -1,14 +1,8 @@
-import type { ICommandExecutor, ListArchives } from '@types';
+import type { IVideoOrchestrator } from '@api-lib/types';
 
-function listArchives(this: ICommandExecutor) {
+function listArchives(this: IVideoOrchestrator) {
   // Implementation for listing archives
   return { success: true, archives: [] };
 }
 
-export default Object.assign(listArchives, {
-  command: (sessionId: string, room: string): ListArchives => ({
-    action: 'listArchives',
-    sessionId,
-    payload: { room },
-  }),
-});
+export default listArchives;

@@ -1,5 +1,3 @@
-import { VeraAction } from '../schemas/VeraAction';
-import { ActionResult } from '../schemas/ActionResult';
 import { Any } from '@common/types';
 import {
   getOrCreateSession,
@@ -8,24 +6,25 @@ import {
   listArchives,
   enableCaptions,
 } from '@api-lib/handlers';
-import { ActionInput, IVideoProvider } from '@api-lib/types';
+import { ActionInput, ActionResult, VeraAction, VonageProviderConfig } from '@api-lib/types';
+import VonageVideoService from '@api-lib/providers/VonageVideoService';
 
 /**
  * Forces ActionExecutor to have a method for each VeraAction
  * and correctly types the payload and return type
  */
-type ICommandExecutor = {
+type IVideoOrchestrator = {
   [key in VeraAction]: (
-    this: CommandExecutor,
+    this: VideoOrchestrator,
     payload: ActionInput<key>
   ) => ActionResult<unknown> | Promise<ActionResult<unknown>>;
 };
 
-class CommandExecutor implements ICommandExecutor {
-  public videoProvider: IVideoProvider;
+class VideoOrchestrator implements IVideoOrchestrator {
+  public readonly videoProvider: VonageVideoService;
 
-  constructor(args: { videoProvider: IVideoProvider }) {
-    this.videoProvider = args.videoProvider;
+  constructor(private readonly config: VonageProviderConfig) {
+    this.videoProvider = new VonageVideoService(this.config);
   }
 
   /**
@@ -55,4 +54,4 @@ class CommandExecutor implements ICommandExecutor {
   enableCaptions = enableCaptions as Any;
 }
 
-export default CommandExecutor;
+export default VideoOrchestrator;
