@@ -1,12 +1,7 @@
 import z from 'zod';
-import ActionBaseSchema from './ActionBase';
+import ActionBaseSchema from './ActionBase.schema';
 
-export const EnableCaptionsSchema = ActionBaseSchema.extend({
-  action: z.literal('enableCaptions'),
-  payload: z.object({
-    room: z.string(),
-  }),
-});
+export const EnableCaptionsSchema = ActionBaseSchema.extend({});
 
 export type EnableCaptions = z.infer<typeof EnableCaptionsSchema>;
 

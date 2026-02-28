@@ -21,10 +21,13 @@ type IVideoOrchestrator = {
 };
 
 class VideoOrchestrator implements IVideoOrchestrator {
-  public readonly videoProvider: VonageVideoService;
+  /**
+   * Vonage video provider instance
+   */
+  public readonly videoProvider$: VonageVideoService;
 
   constructor(private readonly config: VonageProviderConfig) {
-    this.videoProvider = new VonageVideoService(this.config);
+    this.videoProvider$ = new VonageVideoService(this.config);
   }
 
   /**

@@ -1,5 +1,5 @@
 import z from 'zod';
-import ActionBaseSchema from './ActionBase';
+import ActionBaseSchema from './ActionBase.schema';
 
 export const StopArchiveSchema = ActionBaseSchema.extend({
   action: z.literal('stopArchive'),

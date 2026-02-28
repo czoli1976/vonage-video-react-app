@@ -18,7 +18,7 @@ async function getOrCreateSession(
       decodeSessionId(payload.sessionId);
     }
 
-    return this.videoProvider.createSession();
+    return this.videoProvider$.createSession();
   })();
 
   return {
